@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+%html
+  %head
+    <title>Beerchive</title>
+
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+
+    <script type="text/javascript" src="//use.typekit.net/wyx2saj.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    = csrf_meta_tags
+
+  %body
+    %header.application
+      .wrapper
+        %h1.logo Beerchive
+
+        %nav
+          - if signed_in?
+            = link_to("All Beers", beers_path)
+            = link_to("Add a new beer", new_beer_path)
+          - else
+            = link_to 'Sign in', sign_in_path
+            = link_to 'Sign up', sign_up_path
+
+    %section.application
+      .flash
+        - flash.each do |key, value|
+          %div{class: key}
+            = value
+
+      = yield
+
+    %footer.application
+      = link_to 'Sign out', sign_out_path, method: :delete, class: "sign-out"

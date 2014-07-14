@@ -1,0 +1,6 @@
+en:
+  helpers:
+    label:
+      beer:
+        name: "Beer Name"
+        description: "Tasting Notes"

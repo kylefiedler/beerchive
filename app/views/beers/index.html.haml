@@ -1,0 +1,12 @@
+%ul.beers
+  - @beers.each do |beer|
+    %li
+      %h3= beer.brewery
+      %h2= beer.name
+      .description
+        - if beer.description.length > 200
+          = truncate beer.description, length: 200
+          = link_to 'full notes', beer
+        - else
+          = beer.description
+        = link_to("edit", edit_beer_path(beer))
