@@ -1,11 +1,13 @@
 %h1 Add a beer to your collection
 
-= form_for(@beer) do |form|
+= form_for @beer, :html => { :multipart => true } do |form|
   .beer-form
     = form.label :brewery
     = form.text_field :brewery
     = form.label :name, class: "required"
     = form.text_field :name
+    = form.label :photo
+    = form.file_field :photo
     = form.label :description
     = form.text_area :description
   = form.submit "Add beer"

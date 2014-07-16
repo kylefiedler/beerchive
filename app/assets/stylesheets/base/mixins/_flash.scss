@@ -4,6 +4,7 @@
   font-weight: bold;
   margin-bottom: $base-line-height;
   padding: $base-line-height / 2;
+  border-radius: $base-border-radius;
 
   a {
     color: darken($color, 70);

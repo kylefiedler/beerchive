@@ -1,24 +1,32 @@
 .beers {
   li {
-    @include span-columns(4);
     @include omega(3n);
+    @include span-columns(4);
     background-color: white;
-    padding: 1.5em;
-    margin-bottom: 1.5em;
     border-radius: $base-border-radius;
+    margin-bottom: 1.5em;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .contianer {
+    padding: 1.5em;
   }
 
   h3 {
-    text-transform: uppercase;
-    font-weight: 200;
+    color: darken($tan, 55);
     font-size: 1em;
-    color: darken($tan, 40);
+    font-weight: 200;
     letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   h2 {
-    font-size: 1.5em;
     color: $dark-brown;
+    font-size: 1.5em;
     margin-bottom: .5em;
   }
 }
