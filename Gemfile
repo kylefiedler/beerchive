@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'clearance', '~> 1.3.0'
 gem 'paperclip', '~> 4.1'
+gem 'will_paginate', '~> 3.0'
 
 gem 'bourbon'
 gem 'neat'

@@ -2,7 +2,7 @@ class BeersController < ApplicationController
   before_filter :authorize
 
   def index
-    @beers = current_user.beers.all
+    @beers = current_user.beers.paginate(:page => params[:page], :per_page => 12)
     @beers.sort! { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
