@@ -26,17 +26,27 @@ class BeersController < ApplicationController
   end
 
   def edit
-    @beer = current_user.beers.find(params[:id])
+    @beer = find_beer
   end
 
   def update
-    @beer = current_user.beers.find(params[:id])
+    @beer = find_beer
     @beer.update_attributes(user_params)
+    redirect_to beers_path
+  end
+
+  def destroy
+    @beer = find_beer
+    @beer.destroy
+    flash[:notice]= "Beer has been deleted"
     redirect_to beers_path
   end
 
   private
 
+  def find_beer
+    current_user.beers.find(params[:id])
+  end
   def user_params
     params.require(:beer).permit(:name, :description, :brewery, :photo)
   end

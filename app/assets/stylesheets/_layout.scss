@@ -1,31 +1,82 @@
 header.application {
+  border-top: 4px solid darken($tan, 8);
+
   .wrapper {
     @include outer-container;
-    padding: 3em 2em 0;
+    padding: 4em 2em 1em;
   }
 
   .logo {
     float: left;
     font-size: 1.75em;
+
+    span {
+      font-size: em(16, 28);
+      font-family: $base-font-family;
+      font-weight: normal;
+      display: inline-block;
+      margin-left: .75em;
+      padding-left: 1em;
+      border-left: 1px solid darken($tan, 12);
+      position: relative;
+      top: -.2em;
+
+      a {
+        color: lighten($dark-brown, 30);
+      }
+    }
+
+    a {
+      color: $dark-brown;
+
+      // &:before {
+      //   @include size(1.5em);
+      //   content: '';
+      //   display: inline-block;
+      //   background-image: image-url('beer.svg');
+      //   background-repeat: no-repeat;
+      //   background-size: 90%;
+      //   background-position: center center;
+      //   vertical-align: bottom;
+      // }
+    }
   }
 
   nav {
     float: right;
-    margin-top: .5em;
     font-size: em(14);
 
     a {
+      border-radius: $base-border-radius;
+      background-color: $base-accent-color;
+      color: white;
+      display: inline-block;
       font-weight: bold;
-      text-transform: uppercase;
-      text-indent: 1px;
       margin-left: 1em;
+      padding: .5em .75em;
+      text-indent: 1px;
+      text-transform: uppercase;
+
+      &.add {
+        &:before {
+          @include size(1em);
+          background-image: image-url('add.svg');
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: 100%;
+          content: '';
+          display: inline-block;
+          margin-right: .5em;
+          vertical-align: text-top;
+        }
+      }
     }
   }
 }
 
 section.application {
   @include outer-container;
-  margin-top: 2em;
+  margin-top: 1.5em;
   padding: 0 2em;
 }
 

@@ -7,11 +7,13 @@
         %h3= beer.brewery
         %h2= beer.name
         .description
-          - if beer.description.length > 200
-            = truncate beer.description, length: 200
+          - if beer.description.length > 150
+            = truncate beer.description, length: 150
             = link_to 'full notes', beer
           - else
             = beer.description
-          = link_to("edit", edit_beer_path(beer))
+      %nav
+        = link_to("edit", edit_beer_path(beer), class: "edit")
+        = link_to("delete", beer, method: :delete, alert: "Are you sure you want to remove this beer?", class: "delete")
 
 = will_paginate @beers

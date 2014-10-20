@@ -6,6 +6,47 @@
     border-radius: $base-border-radius;
     margin-bottom: 1.5em;
     overflow: hidden;
+    position: relative;
+
+    &:hover {
+      nav {
+        opacity: 1;
+      }
+    }
+
+    nav {
+      @include position(absolute, 0em 0em null null);
+      @include transition(all .75s ease-in-out);
+      opacity: 0;
+
+      a {
+        @include size(2.5em);
+        background-color: $base-accent-color;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50%;
+        display: block;
+        float: left;
+        color: white;
+        text-indent: -99999px;
+
+        &:last-child {
+          border-radius: 0 $base-border-radius 0 0;
+        }
+
+        &:hover {
+          background-color: darken($base-accent-color, 10);
+        }
+
+        &.edit {
+          background-image: image-url('edit.svg');
+        }
+
+        &.delete {
+          background-image: image-url('delete.svg');
+        }
+      }
+    }
   }
 
   img {
@@ -29,4 +70,5 @@
     font-size: 1.5em;
     margin-bottom: .5em;
   }
+
 }
